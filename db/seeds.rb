@@ -1,1 +1,8 @@
 Location.create([{ name: 'Charlotte' }, { name: 'Denver' }, { name: 'Remote'}])
+Event.create({ name: "test_event_1", category: "Conference Attendee"})
+Event.create({ name: "test_event_2", category: "Conference Presenter"})
+Event.create({ name: "test_event_3", category: "Online Course"})
+Event.create({ name: "test_event_4", category: "In Person Course"})
+Event.create({ name: "test_event_5", category: "Book"})
+Event.create({ name: "test_event_6", category: "Tutorial"})
+Event.create({ name: "test_event_7", category: "Other"})

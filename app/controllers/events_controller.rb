@@ -5,7 +5,18 @@ class EventsController < ApplicationController
   end
 
   def create
-    
+    @event = Event.create(event_params)
+
+    if @event.save
+      flash[:message] = "Learning Logged!"
+      redirect_to event_path(@event)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @event = Event.find(params[:id])
   end
 
   def event_params
