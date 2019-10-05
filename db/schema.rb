@@ -10,23 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_05_163240) do
+ActiveRecord::Schema.define(version: 2019_10_05_182903) do
+
+  create_table "employee_events", force: :cascade do |t|
+    t.integer "employee_id"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_events_on_employee_id"
+    t.index ["event_id"], name: "index_employee_events_on_event_id"
+  end
 
   create_table "employees", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.string "email"
     t.string "name"
     t.string "title"
     t.text "bio"
     t.integer "location_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "email"
-  end
-
-  create_table "employees_events", force: :cascade do |t|
-    t.integer "employee_id"
-    t.integer "event_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
