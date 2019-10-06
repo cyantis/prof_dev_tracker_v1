@@ -19,6 +19,17 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    @event = Event.find(params[:id])
+    @event.update(event_params)
+    flash[:message] = "Learning Updated!"
+    redirect_to event_path(@event)
+  end
+
   def event_params
     params.require(:event).permit(:name, :date, :category, :description, :shared, employee_ids: [])
   end

@@ -1,1 +1,8 @@
-<h1><%= @employee.username %>'s profile</h1>
+<h1><%= @employee.username %>'s Learning Log</h1>
+<%= button_to "Log New Learning", new_employee_event_path(@employee), method: "get" %>
+
+<ul>
+  <% @employee.events.each do |e| %>
+    <li><%= link_to e.name, employee_event_path(@employee, e) %> | <%= e.date %></li>
+  <% end %>
+</ul>
