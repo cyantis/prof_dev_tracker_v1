@@ -10,3 +10,7 @@
   <% end %>
 
 </ul>
+
+<%= button_to "Back to your learning profile", employee_path(@employee), method: "get" %>
+<%= button_to "Edit Learning", edit_employee_event_path(@employee, @event), method: "get" %>
+<%= button_to "Delete Learning", employee_event_path(@employee, @event), method: :delete %>

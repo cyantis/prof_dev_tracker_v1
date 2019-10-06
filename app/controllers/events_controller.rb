@@ -17,6 +17,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @employee = Employee.find(params[:employee_id])
   end
 
   def edit
@@ -28,6 +29,14 @@ class EventsController < ApplicationController
     @event.update(event_params)
     flash[:message] = "Learning Updated!"
     redirect_to event_path(@event)
+  end
+
+  def destroy
+    @event = Event.find(params[:id])
+    @employee = Employee.find(params[:employee_id])
+    @event.destroy
+    flash[:message] = "Learning Deleted!"
+    redirect_to employee_path(@employee)
   end
 
   def event_params
