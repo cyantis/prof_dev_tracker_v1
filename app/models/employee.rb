@@ -3,7 +3,7 @@ class Employee < ApplicationRecord
   has_many :employee_events
   has_many :events, through: :employee_events
 
-  validates :username, :email, presence: true
+  validates :username, :email, :name, presence: true
   validates :username, :email, uniqueness: true
 
   has_secure_password

@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   resources :employees do
     resources :events
   end
+  resources :locations
+
+  root 'locations#index'
 end
