@@ -2,6 +2,7 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    @employee = Employee.find(params[:employee_id])
   end
 
   def create
@@ -22,6 +23,7 @@ class EventsController < ApplicationController
 
   def edit
     @event = Event.find(params[:id])
+    @employee = Employee.find(params[:employee_id])
   end
 
   def update
