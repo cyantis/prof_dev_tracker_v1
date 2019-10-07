@@ -1,6 +1,6 @@
 module EventsHelper
   def event_type_arr
-    Event.all.collect {|e| e.category}.sort.uniq
+    Event.event_order.collect {|e| e.category}
   end
 
 end

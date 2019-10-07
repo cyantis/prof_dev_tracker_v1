@@ -1,4 +1,4 @@
-<h1><%= @employee.username %>'s Learning Log</h1>
+<h1><%= @employee.name ? @employee.name : @employee.username %>'s Learning Log</h1>
 <%= button_to "Log New Learning", new_employee_event_path(@employee), method: "get" %>
 
 <ul>

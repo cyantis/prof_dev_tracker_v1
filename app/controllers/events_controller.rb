@@ -7,10 +7,11 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(event_params)
+    @employee = Employee.find(params[:event][:employee_ids][0])
 
     if @event.save
       flash[:message] = "Learning Logged!"
-      redirect_to event_path(@event)
+      redirect_to employee_event_path(@employee, @event)
     else
       render :new
     end
@@ -29,8 +30,9 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     @event.update(event_params)
+    @employee = Employee.find(params[:event][:employee_ids][0])
     flash[:message] = "Learning Updated!"
-    redirect_to event_path(@event)
+    redirect_to employee_event_path(@employee, @event)
   end
 
   def destroy
