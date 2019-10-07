@@ -1,6 +1,6 @@
 <h1>Who's Learning What?</h1>
 <ul>
   <% org_event_arr.each do |e| %>
-    <li><%= e.employees.last.name %> | <%= e.name %> | <%= e.category %></li>
+    <li><%= link_to "#{e.employees.last.name} | #{e.name}", event_path(e) %></li>
   <% end %>
 </ul>
