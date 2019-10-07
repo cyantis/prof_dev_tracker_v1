@@ -6,7 +6,7 @@
   <%= f.text_field :date %></br>
 
   <%= f.label :category, 'Type of Learning' %></br>
-  <%= f.select :category, event_type_arr, :prompt => 'Select Learning Type' %><br>
+  <%= f.collection_select :category, Event.all, :category, :category, :prompt => 'Select Learning Type' %><br>
 
   <%= f.label :description, "Tell us a bit about this learning experience..." %></br>
   <%= f.text_area :description %></br>
