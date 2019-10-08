@@ -20,10 +20,28 @@ class ManagersController < ApplicationController
     @manager = Manager.find(params[:id])
   end
 
+
+  def edit
+    @manager = Manager.find(params[:id])
+  end
+
+  def update
+    @manager = Manager.find(params[:id])
+    @manager.update(manager_params)
+
+    if @manager.save
+      flash[:message] = "Manager Updated!"
+      redirect_to manager_path(@manager)
+    else
+      flash[:message] = "All fields are required. Please, enter again!"
+      render :edit
+    end
+  end
+
   private
 
   def manager_params
-    params.require(:manager).permit(:id, :username, :password, :email, :name, :title, :bio, :location_id)
+    params.require(:manager).permit(:username, :password, :email, :name, :title, :bio, :location_id)
   end
 
 end

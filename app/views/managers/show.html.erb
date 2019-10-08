@@ -1,1 +1,9 @@
-<h1><%= @manager.name %>'s Team's Learning</h1>
+<h1><%= @manager.name %></h1>
+<p><%= @manager.title %> | <%= @manager.location.name %></p>
+
+<p><%= @manager.bio %></p>
+
+<%= button_to "Edit Your Profile", edit_manager_path(@manager), method: "get" %>
+<%= button_to "Home", root_path, method: "get" %>
+
+<h3><%= @manager.name %>'s Team's Learning</h3>

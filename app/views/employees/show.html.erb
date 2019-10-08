@@ -1,5 +1,11 @@
 <h1><%= @employee.name %>'s Learning Log</h1>
+
+<p><%= @employee.title %> | <%= @employee.location.name %></p>
+
+<p><%= @employee.bio %></p>
+
 <%= button_to "Log New Learning", new_employee_event_path(@employee), method: "get" %>
+<%= button_to "Edit Your Profile", edit_employee_path(@employee), method: "get" %>
 <%= button_to "Home", root_path, method: "get" %>
 
 <ul>
