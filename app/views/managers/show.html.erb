@@ -7,3 +7,10 @@
 <%= button_to "Home", root_path, method: "get" %>
 
 <h3><%= @manager.name %>'s Team's Learning</h3>
+<ul>
+  <% org_event_arr.each do |e| %>
+    <% if e.employees.last.manager_id == @manager.id  %>
+      <li><%= link_to "#{e.employees.last.name} | #{e.name}", event_path(e) %></li>
+    <% end %>
+  <% end %>
+</ul>
