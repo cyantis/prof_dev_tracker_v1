@@ -1,5 +1,6 @@
 class Employee < ApplicationRecord
   belongs_to :location
+  belongs_to :manager
   has_many :employee_events
   has_many :events, through: :employee_events
 
