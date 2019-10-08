@@ -21,7 +21,7 @@
   <%= f.collection_select :location_id, Location.all, :id, :name, :prompt => 'Where do you work?'%></br>
 
   <%= f.label :manager, 'Manager (required)' %></br>
-  <%= f.collection_select :manager_id, Manager.all, :id, :name, :prompt => "Who's your boss?"%></br>
+  <%= f.collection_select :manager_id, manager_arr, :id, :name, :include_blank => "I'm a manager", :prompt => "Who's your boss?"%></br>
 
   <%= f.submit %>
 <% end %>
