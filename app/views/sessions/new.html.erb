@@ -1,5 +1,4 @@
-
-<%= flash[:message] if flash[:message] %>
+<%= flash[:message] %>
 
 <h1>Login to Professional Development Tracker!</h1>
 
@@ -14,5 +13,5 @@
 <% end %>
 
 
-<p>New to Professional Development Tracker</p>
+<p>New to Professional Development Tracker?</p>
 <p><%= button_to "Create an Account!", new_employee_path, method: :get %><p>

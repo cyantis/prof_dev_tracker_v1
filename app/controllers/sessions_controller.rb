@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
 
   def create
     @employee = Employee.find_by(username: params[:employee][:username])
-      if @employee && @employee.authenticate(params[:teacher][:password])
+      if @employee && @employee.authenticate(params[:employee][:password])
         session[:user_id] = @employee.id
-        flash[:message] = "Welcome, #{@employee.name.capitalize}!"
+        flash[:message] = "Welcome, #{@employee.name.split(" ")[0]}!"
         redirect_to root_path
       else
         flash[:message] = "Username or password is incorrect. Please, try again."

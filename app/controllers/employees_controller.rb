@@ -1,5 +1,5 @@
 class EmployeesController < ApplicationController
-  before_action :require_login
+  before_action :require_login, except: [:new, :create]
 
   def new
     @employee = Employee.new
