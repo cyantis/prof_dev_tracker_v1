@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_action :require_login
 
   def new
     @employee = Employee.new
@@ -8,6 +9,7 @@ class EmployeesController < ApplicationController
     @employee = Employee.create(employee_params)
 
     if @employee.save
+      session[:user_id] =  @employee.id
       flash[:message] = "Employee Created!"
       redirect_to employee_path(@employee)
     else

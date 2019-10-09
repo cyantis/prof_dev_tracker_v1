@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   end
   resources :locations
 
+  resource :sessions, only: [:new, :create, :destroy]
+
   root 'locations#index'
 end
