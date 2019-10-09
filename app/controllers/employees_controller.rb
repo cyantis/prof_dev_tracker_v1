@@ -13,7 +13,7 @@ class EmployeesController < ApplicationController
       flash[:message] = "Employee Created!"
       redirect_to employee_path(@employee)
     else
-      flash[:message] = "All fields are required. Please, enter again!"
+      flash[:message] = "Required fields are missing. Please, enter again!"
       render :new
     end
   end
@@ -34,7 +34,7 @@ class EmployeesController < ApplicationController
       flash[:message] = "Employee Updated!"
       redirect_to employee_path(@employee)
     else
-      flash[:message] = "All fields are required. Please, enter again!"
+      flash[:message] = "Required fields are missing. Please, enter again!"
       render :edit
     end
   end

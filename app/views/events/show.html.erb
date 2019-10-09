@@ -12,8 +12,8 @@
 </ul>
 
 <%= button_to "Home", root_path, method: "get" %>
-<%= button_to "Back to your learning profile", employee_path(current_user), method: "get" %>
-<% if @employee %>
+<%= button_to "Your learning profile", employee_path(@employee), method: "get" %>
+<% if @event.employees.include?(@employee) %>
   <%= button_to "Edit Learning", edit_employee_event_path(@employee, @event), method: "get" %>
   <%= button_to "Delete Learning", employee_event_path(@employee, @event), method: :delete %>
 <% end %>

@@ -7,6 +7,7 @@
 <%= button_to "Log New Learning", new_employee_event_path(@employee), method: "get" %>
 <%= button_to "Edit Your Profile", edit_employee_path(@employee), method: "get" %>
 <%= button_to "Home", root_path, method: "get" %>
+<%= button_to "Logout", sessions_path, method: :delete %>
 
 <ul>
   <% @employee.events.each do |e| %>

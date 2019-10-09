@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @employee = Employee.find(params[:employee_id]) if params[:employee_id]
+    @employee = Employee.find(session[:user_id])
   end
 
   def edit
