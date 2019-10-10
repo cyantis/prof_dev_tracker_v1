@@ -1,6 +1,11 @@
 class EmployeesController < ApplicationController
   before_action :require_login, except: [:new, :create]
 
+  def index
+    @employees = Employee.all
+    render json: @employees
+  end
+
   def new
     @employee = Employee.new
   end

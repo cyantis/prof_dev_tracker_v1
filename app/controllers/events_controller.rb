@@ -1,6 +1,11 @@
 class EventsController < ApplicationController
   before_action :require_login
 
+  def index
+    @events = Event.all
+    render json: @events
+  end
+
   def new
     @event = Event.new
     @employee = Employee.find(params[:employee_id])
