@@ -8,11 +8,12 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.create(event_params)
-    @employee = Employee.find(params[:event][:employee_ids][0])
+    #@employee = Employee.find(params[:event][:employee_ids][0])
 
     if @event.save
       flash[:message] = "Learning Logged!"
-      redirect_to employee_event_path(@employee, @event)
+      render json: @event, status: 201
+      #redirect_to employee_event_path(@employee, @event)
     else
       render :new
     end
@@ -21,6 +22,10 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @employee = Employee.find(session[:user_id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @event }
+    end
   end
 
   def edit

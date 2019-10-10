@@ -20,6 +20,10 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
+    respond_to do |format|
+      format.html { render :show }
+      format.json { render json: @employee }
+    end
   end
 
   def edit
