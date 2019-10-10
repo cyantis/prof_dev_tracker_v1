@@ -9,3 +9,12 @@
   <p id="eventDescription"></p>
   <p id="eventShared"></p>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    $('form').submit(function(e) {
+      e.preventDefault();
+      alert("Does this work?");
+    });
+  });
+</script>
